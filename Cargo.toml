@@ -1,0 +1,41 @@
+[package]
+name = "logify"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+authors = ["Craig Kelley <craig.alex.kelley@gmail.com>"]
+repository = "https://github.com/Craig-Kelley/logify"
+documentation = "https://docs.rs/logify"
+readme = "README.md"
+
+description = """
+A high-performance, portable boolean logic engine.
+Turns abstract logic into optimized data structures that can be serialized,
+cached, and evaluated against arbitrary user data (Bitmaps, Sets, JSON, etc).
+"""
+categories = [
+    "data-structures",
+    "algorithms",
+    "caching",
+    "encoding",
+	"compression"
+]
+keywords = [
+	"boolean-logic",
+	"expression",
+	"rule-engine",
+	"evaluator",
+	"dag"
+]
+
+[features]
+default = []
+fast-binary = ["dep:bitcode"]
+
+[dependencies]
+bitcode = { version = "0.6.9", optional = true }
+bitflags = "2.10.0"
+hashbrown = "0.16.1"
+rapidhash = "4.1.1"
+serde = { version = "1.0.228", features = ["derive"] }
+slotmap = "1.0.7"
